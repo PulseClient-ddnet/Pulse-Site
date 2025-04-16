@@ -1,14 +1,23 @@
+"use client";
+
 import { Download, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { IClientInfo, useChangelogStore } from "@/store/changelog-store";
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
+  const [clientInfo, setClientInfo] = useState<IClientInfo | null>(null);
+  const { lastReleaseInfo } = useChangelogStore();
+
+  useEffect(() => {
+    lastReleaseInfo().then(setClientInfo);
+  }, []);
+
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent pointer-events-none" />
 
-      {/* Animated grid background */}
       <div className="absolute inset-0 bg-[url('/header.png')] bg-center opacity-10" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -49,7 +58,8 @@ export function HeroSection() {
           </div>
 
           <div className="mt-8 text-sm text-zinc-500">
-            Version 2.3.1 • Released April 10, 2023 • Windows, Linux & macOS
+            Version {clientInfo?.version} • Last Release {clientInfo?.date} •
+            Windows, Linux & macOS
           </div>
         </div>
       </div>

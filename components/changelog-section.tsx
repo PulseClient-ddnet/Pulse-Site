@@ -1,52 +1,44 @@
-import { Calendar, GitCommit, GitPullRequest, Bug, Zap, Package } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+"use client";
 
-// Sample changelog data
-const changelogEntries = [
-  {
-    version: "2.3.1",
-    date: "April 10, 2023",
-    changes: [
-      { type: "fix", description: "Fixed crash when connecting to servers with custom assets" },
-      { type: "fix", description: "Resolved UI scaling issues on high DPI displays" },
-      { type: "improvement", description: "Improved loading times for large maps" },
-    ],
-  },
-  {
-    version: "2.3.0",
-    date: "March 25, 2023",
-    changes: [
-      { type: "feature", description: "Added advanced skin editor with layer support" },
-      { type: "feature", description: "New performance monitoring tools" },
-      { type: "improvement", description: "Enhanced netcode for better responsiveness" },
-      { type: "improvement", description: "Updated UI with new dark theme" },
-      { type: "fix", description: "Fixed memory leak in the renderer" },
-    ],
-  },
-  {
-    version: "2.2.5",
-    date: "February 12, 2023",
-    changes: [
-      { type: "fix", description: "Fixed compatibility issues with latest DDNet update" },
-      { type: "improvement", description: "Optimized texture loading for faster startup" },
-      { type: "fix", description: "Resolved friend list synchronization issues" },
-    ],
-  },
-]
+import {
+  Calendar,
+  GitCommit,
+  GitPullRequest,
+  Bug,
+  Zap,
+  Package,
+  GitMerge,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+import { useEffect, useState } from "react";
+import { ChangelogEntry, useChangelogStore } from "@/store/changelog-store";
 
 export function ChangelogSection() {
+  const [changelog, setChangelog] = useState<ChangelogEntry[]>([]);
+  const { formatedChangelog } = useChangelogStore();
+
+  useEffect(() => {
+    formatedChangelog().then(setChangelog);
+  }, []);
+
   return (
     <section id="changelog" className="py-20 bg-zinc-900/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Changelog</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">Stay up to date with the latest improvements and fixes</p>
+          <p className="text-zinc-400 max-w-2xl mx-auto">
+            Stay up to date with the latest improvements and fixes
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
-          {changelogEntries.map((entry, index) => (
-            <Card key={index} className="border-zinc-800 bg-zinc-900/60 backdrop-blur-sm">
+          {changelog.map((entry, index) => (
+            <Card
+              key={index}
+              className="border-zinc-800 bg-zinc-900/60 backdrop-blur-sm"
+            >
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -74,11 +66,18 @@ export function ChangelogSection() {
                             <GitPullRequest className="h-3 w-3 mr-1" />
                             Improvement
                           </Badge>
-                        ) : (
+                        ) : change.type === "fix" ? (
                           <Badge className="bg-orange-500/20 text-orange-300 hover:bg-orange-500/30 border-0">
                             <Bug className="h-3 w-3 mr-1" />
                             Fix
                           </Badge>
+                        ) : (
+                          change.type === "ddnet_version" && (
+                            <Badge className="bg-pink-500/20 text-pink-300 hover:bg-pink-500/30 border-0">
+                              <GitMerge className="h-3 w-3 mr-1" />
+                              DDNet Version
+                            </Badge>
+                          )
                         )}
                       </div>
                       <div className="text-zinc-300">{change.description}</div>
@@ -90,7 +89,10 @@ export function ChangelogSection() {
           ))}
 
           <div className="text-center pt-4">
-            <a href="#" className="text-purple-400 hover:text-purple-300 text-sm inline-flex items-center">
+            <a
+              href="https://github.com/StormAxs/DDNetPulse/releases"
+              className="text-purple-400 hover:text-purple-300 text-sm inline-flex items-center"
+            >
               <GitCommit className="h-4 w-4 mr-1" />
               View full changelog on GitHub
             </a>
@@ -98,5 +100,5 @@ export function ChangelogSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
