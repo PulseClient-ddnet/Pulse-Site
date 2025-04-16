@@ -69,52 +69,12 @@ export function Footer() {
 
             <div>
               <h3 className="text-sm font-semibold mb-4 text-zinc-300">
-                Resources
-              </h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors"
-                  >
-                    Tutorials
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors"
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors"
-                  >
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold mb-4 text-zinc-300">
                 Community
               </h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/StormAxs/DDNetPulse/"
                     className="text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center"
                   >
                     <Github className="h-4 w-4 mr-2" />
@@ -123,20 +83,12 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://discord.gg/yn26fYpSw6"
+                    target="_blank"
                     className="text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center"
                   >
                     <Discord className="h-4 w-4 mr-2" />
                     Discord
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center"
-                  >
-                    <Twitter className="h-4 w-4 mr-2" />
-                    Twitter
                   </a>
                 </li>
               </ul>
