@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { useEffect, useState } from "react";
 import { ChangelogEntry, useChangelogStore } from "@/store/changelog-store";
+import Link from "next/link";
 
 export function ChangelogSection() {
   const [changelog, setChangelog] = useState<ChangelogEntry[]>([]);
@@ -89,13 +90,14 @@ export function ChangelogSection() {
           ))}
 
           <div className="text-center pt-4">
-            <a
+            <Link
               href="https://github.com/StormAxs/DDNetPulse/releases"
+              target="_blank"
               className="text-purple-400 hover:text-purple-300 text-sm inline-flex items-center"
             >
               <GitCommit className="h-4 w-4 mr-1" />
               View full changelog on GitHub
-            </a>
+            </Link>
           </div>
         </div>
       </div>
