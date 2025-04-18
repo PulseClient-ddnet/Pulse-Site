@@ -44,7 +44,7 @@ export function DownloadSection() {
             <TabsList className="grid grid-cols-2 mb-8">
               <TabsTrigger
                 value="windows"
-                className="data-[state=active]:bg-zinc-800"
+                className="data-[state=active]:bg-zinc-300 data-[state=active]:text-background"
               >
                 <Windows className="mr-2 h-4 w-4" />
                 Windows
@@ -60,7 +60,7 @@ export function DownloadSection() {
             */}
               <TabsTrigger
                 value="linux"
-                className="data-[state=active]:bg-zinc-800"
+                className="data-[state=active]:bg-zinc-300 data-[state=active]:text-background"
               >
                 <Linux className="mr-2 h-4 w-4" />
                 Linux
