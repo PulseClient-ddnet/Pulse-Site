@@ -118,7 +118,7 @@ export function DownloadSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://github.com/StormAxs/Pulse-Site"
+                href="https://github.com/StormAxs/DDNetPulse/releases"
                 target="_blank"
               >
                 <Button
