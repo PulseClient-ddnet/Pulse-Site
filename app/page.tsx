@@ -26,26 +26,26 @@ export default function Home() {
             </span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <a
+            <Link
               href="#features"
               className="text-sm text-zinc-400 hover:text-white transition-colors"
             >
               Features
-            </a>
-            <a
+            </Link>
+            <Link
               href="#changelog"
               className="text-sm text-zinc-400 hover:text-white transition-colors"
             >
               Changelog
-            </a>
-            <a
-              href="https://github.com"
+            </Link>
+            <Link
+              href="https://github.com/StormAxs/DDNetPulse"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-zinc-400 hover:text-white transition-colors"
             >
               GitHub
-            </a>
+            </Link>
           </nav>
           <Link href="#download">
             <Button size="sm" className="hidden md:flex">
