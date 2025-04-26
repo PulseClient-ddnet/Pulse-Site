@@ -1,6 +1,9 @@
 import type React from "react"
-import { Zap, Shield, Palette, Gauge, Cpu, Layout, Crosshair, Users } from "lucide-react"
+import {
+  Zap, Shield, Palette, StarsIcon, WebhookIcon,
+} from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import {CollapseIcon} from "next/dist/client/components/react-dev-overlay/ui/icons/collapse-icon";
 
 export function FeaturesSection() {
   return (
@@ -16,33 +19,45 @@ export function FeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <FeatureCard
             icon={<Zap className="h-6 w-6 text-purple-500" />}
-            title="Performance Boost"
-            description="Optimized rendering engine for higher FPS and smoother gameplay."
+            title="Lighty"
+            description="Enhanced rendering, with the help of which were made a lot of pretty stuff:3"
           />
 
           <FeatureCard
             icon={<Shield className="h-6 w-6 text-blue-500" />}
             title="Anti-Bot Compatible"
-            description="Fully compatible with DDNet's anti-bot system while providing enhanced features. The client itself was made by the ddnet mod lol:p"
+            description="Fully compatible with DDNet's anti-bot. The client itself was made by the ddnet mod lol:p"
           />
 
           <FeatureCard
             icon={<Palette className="h-6 w-6 text-pink-500" />}
             title="Customizable"
-            description="Import and use custom skins with our advanced skin manager and editor."
+            description="Most of the stuff in ddnet which wasn't able to customize in DDNet is able to customize here:p"
           />
 
           <FeatureCard
-            icon={<Gauge className="h-6 w-6 text-green-500" />}
+            icon={<StarsIcon className="h-6 w-6 text-green-500" />}
             title="HUD Enhancements"
             description="Customized displays with additional information and statistics."
           />
 
           <FeatureCard
-            icon={<Layout className="h-6 w-6 text-red-500" />}
-            title="UI Enhancements"
-            description="Modern interface with dark mode, customizable themes, console and improved usability."
+            icon={<WebhookIcon className="h-6 w-6 text-red-500" />}
+            title="Socket.IO Support"
+            description="Pulse have built-in websocket support, and with help of socket.io we are able to organize the backend"
           />
+
+          {/*<FeatureCard*/}
+          {/*    icon={<TrophyIcon className="h-6 w-6 text-white" />}*/}
+          {/*    title="<In Progress> -> Achievements"*/}
+          {/*    description="With websocket.io suport we including achievement. They'll be tied to the community(DDRace/KoG/Block)"*/}
+          {/*/>*/}
+
+          {/*<FeatureCard*/}
+          {/*    icon={<BoxesIcon className="h-6 w-6 text-white" />}*/}
+          {/*    title="<In Progress> -> Stats counter & Tracker"*/}
+          {/*    description="In-game tracker for future statistics display"*/}
+          {/*/>*/}
 
 
           <div className="relative overflow-hidden rounded-lg border border-zinc-800 bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 flex items-center justify-center">
