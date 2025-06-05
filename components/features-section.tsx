@@ -63,7 +63,7 @@ export function FeaturesSection() {
           <div className="relative overflow-hidden rounded-lg border border-zinc-800 bg-gradient-to-br from-purple-900/20 to-blue-900/20 p-6 flex items-center justify-center">
             <div className="text-center">
               <h3 className="text-xl font-medium mb-2">And Much More</h3>
-              <p className="text-zinc-400">Discover all the features by downloading Pusle</p>
+              <p className="text-zinc-400">Discover all the features by downloading Pulse</p>
             </div>
           </div>
         </div>
